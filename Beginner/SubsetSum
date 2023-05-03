@@ -1,0 +1,16 @@
+class solution{
+void recurfunc(int idx,int sum, ArrayList<Integer> arr, int n,ArrayList<Integer> sumSubset){
+if(idx==n){
+sumSubset.add(sum);
+return;
+}
+recurfunc(idx+1, sum+arr.get(idx), arr, n, sumSubset);
+recurfunc(idx+1, sum, arr, n, sumSubset);
+}
+ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int n){
+ArrayList<Integer>sumSubset=new ArrayList<>();
+recurfunc(0,0,arr,n,sumSubset);
+Collections.sort(sumSubset);
+return sumSubset;
+}
+}
